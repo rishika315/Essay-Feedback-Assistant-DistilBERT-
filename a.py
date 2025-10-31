@@ -12,7 +12,7 @@ from tqdm import tqdm
 # -------------------------
 # Config
 # -------------------------
-DATA_PATH = "ASAP2_train_sourcetexts.csv"  # your CSV file path
+DATA_PATH = "ASAP2_train_sourcetexts.csv"  
 ESSAY_COL = "full_text"
 SCORE_COL = "score"
 MODEL_PATH = "asap_ridge_model.pkl"
@@ -21,7 +21,7 @@ EMBED_PATH = "asap_embedding_model.pkl"
 # -------------------------
 # Load dataset
 # -------------------------
-df = pd.read_csv(DATA_PATH, sep=',')  # adjust sep if needed
+df = pd.read_csv(DATA_PATH, sep=',')  
 print("Columns in dataset:", df.columns.tolist())
 
 # Keep only relevant columns and drop rows with missing text or score
@@ -34,8 +34,8 @@ df.rename(columns={ESSAY_COL: "essay", SCORE_COL: "score"}, inplace=True)
 # -------------------------
 def clean_text(text):
     text = str(text)
-    text = re.sub(r'\s+', ' ', text)  # normalize spaces
-    text = re.sub(r'[^A-Za-z0-9.,!?;:()\'"\s]', '', text)  # remove special chars
+    text = re.sub(r'\s+', ' ', text) 
+    text = re.sub(r'[^A-Za-z0-9.,!?;:()\'"\s]', '', text)  
     return text.strip()
 
 print("Cleaning essays...")
@@ -77,3 +77,4 @@ with open(EMBED_PATH, 'wb') as f:
 print(f"SentenceTransformer embedding saved to {EMBED_PATH}")
 
 print("Training complete.")
+
