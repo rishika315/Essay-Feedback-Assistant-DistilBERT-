@@ -24,7 +24,7 @@ nltk.download('punkt', quiet=True)
 punkt_tokenizer = PunktSentenceTokenizer()
 lang_tool = language_tool_python.LanguageTool('en-US')
 
-# Load fine-tuned DistilBERT model (your 'model1')
+
 MODEL_PATH = "C:\\Users\\91986\\OneDrive\\Documents\\PROJECTS\\PROJECTS\\nndl\\asap_transformer_model2"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
@@ -176,3 +176,4 @@ if analyze_btn:
 
     t1 = time.time()
     st.caption(f"Analysis time: {t1 - t0:.1f}s")
+
